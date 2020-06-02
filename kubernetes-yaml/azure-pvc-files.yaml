@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypyspark
+  labels:
+    app: mypyspark
+spec:
+  containers:
+  - name: mypysprkpod
+    image: databricksprod.azurecr.io/mypyspark:v1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azurefile

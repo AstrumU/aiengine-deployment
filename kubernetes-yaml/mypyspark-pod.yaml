@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypyspark-pod
+  labels:
+    app: mypysprk
+spec:
+  containers:
+    - name: mypysprk
+      image: databricksprod.azurecr.io/mypyspark:v1
+      ports:
+        - containerPort: 5000
