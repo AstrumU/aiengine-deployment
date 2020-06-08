@@ -1,0 +1,7 @@
+azure-mgmt-compute 
+azure-mgmt-storage
+azure-mgmt-resource
+azure-keyvault-secrets
+azure-storage-blob 
+pyspark==2.4.0
+flask
