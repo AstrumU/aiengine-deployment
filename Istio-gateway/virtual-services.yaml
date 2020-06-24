@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: aiengine-extenal-services
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway                      # 1
+  http:
+  - match:
+    - uri:
+        prefix: /featurespace
+    route:
+    - destination:
+        host: feature-space
+        port:
+          number: 80
+  - match:
+    - uri:
+        prefix: /rankingrec
+    route:
+    - destination:
+        host: ranking
+        port:
+          number: 80
