@@ -129,5 +129,5 @@ def run():
 if __name__ == "__main__":
     spark = CreateSparkSession()
 
-    app.run(host='0.0.0.0', port=8003)
+    app.run(host='0.0.0.0', port=8004)
 

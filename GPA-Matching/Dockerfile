@@ -21,11 +21,11 @@ ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/2.7.3/hadoop-a
 RUN apt-get install -y git
 
 # Setup for ssh onto github
-COPY id_rsa .
-RUN eval $(ssh-agent) && \
-    ssh-add id_rsa && \
-    ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
-    pip install git+ssh://git@github.com/AstrumU/astrumu_ds_tools.git
+# COPY id_rsa .
+# RUN eval $(ssh-agent) && \
+#     ssh-add id_rsa && \
+#     ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts && \
+#     pip install git+ssh://git@github.com/AstrumU/astrumu_ds_tools.git
 
 ADD ./ /src
 WORKDIR /src/
