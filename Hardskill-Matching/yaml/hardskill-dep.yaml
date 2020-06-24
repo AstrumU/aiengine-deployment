@@ -1,0 +1,23 @@
+apiVersion:  extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hardskill-matching
+  namespace: kube-ai
+  labels:
+    app: hardskill-matching
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hardskill-matching
+  template:
+    metadata:
+      labels:
+        app: hardskill-matching
+    spec:
+      containers:
+      - name: hardskill-matching
+        image: databricksprod.azurecr.io/hardskill:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
