@@ -49,7 +49,7 @@ def extract_prob(v):
         return None
 
 
-@app.route('/rankingrec', methods=['POST'])
+@app.route('/rankingrec-rf', methods=['POST'])
 def rankingrec():
     #load feature space table
     campaign_feature_space = spark.read.format("delta").load(campaign_feature_space_table_path)
@@ -75,4 +75,4 @@ def rankingrec():
 
 if __name__ == "__main__":
     spark = CreateSparkSession()
-    app.run(host='0.0.0.0', port=8003)
+    app.run(host='0.0.0.0', port=8005)
