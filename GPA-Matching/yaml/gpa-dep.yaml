@@ -1,0 +1,23 @@
+apiVersion:  extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gpa-matching
+  namespace: kube-ai
+  labels:
+    app: gpa-matching
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gpa-matching
+  template:
+    metadata:
+      labels:
+        app: gpa-matching
+    spec:
+      containers:
+      - name: gpa-matching
+        image: databricksprod.azurecr.io/gpa-matching:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
